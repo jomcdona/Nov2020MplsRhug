@@ -68,4 +68,4 @@ create schema using script supplied in [9-dev-schema.txt](helperscripts/9-dev-sc
 11  Using the From Git template Deploy pact-content-log-svc as knative service with Java 8 builder image, name pact-contactlog-svc, uncheck create routeDeploy serverlessdemo as knative
 11. Using the From Git template Deploy pactproducer as knative service with Java 8 builder image, name pactproducer, check create route
 12. Using Event Source template create a KafkaSource event source, BootstrapServer pact-cluster-kafka-brokers.pact.svc.cluster.local:9092,topics pact-translated, Sink pact-contactlog-svc
-13. Deploy CamelK integration (use [13-dev-deploycamelk.sh](helperscripts/13-dev-deploycamelk.sh))
+13. From Terminal Window Deploy CamelK integration (use [13-dev-deploycamelk.sh](helperscripts/13-dev-deploycamelk.sh))
