@@ -18,13 +18,18 @@ The service is exposed via an HTTP GET and exposes two endpoints /findcontactbys
 This is a service that provides a Kubernetes service endpoint which is bound to by a knative event source and persists the data
 it receives in a Postgresql database
 
+- **pactcamelkrte**\
+This is a camelk integration route implemented in java DSL which uses camel kafka connector to consume data from a kafka topic, enriches
+the data using a MapQuest API to add address information based on gps coordinate input it receives, and then places enriched data onto a
+kafka topic
+
 The following image illustrates the flow between the service components of the demo
 
 <img src=images/demoarchitecture.jpg>
 
 ## Demo Pre-requisites
-1 An OpenShift 4.5(+) cluster
-2 Installation of ko cli for deploying kubernetes CRD's for knative kafka source (<a href="https://github.com/google/ko">)
-3 Installation of oc command line interface
-4 Installation of Knative kn command line interface
-5 Installation of Tekton tkn command line interface
+1. An OpenShift 4.5(+) cluster
+2. Installation of ko cli for deploying kubernetes CRD's for knative kafka source (<a href="https://github.com/google/ko">)
+3. Installation of oc command line interface
+4. Installation of Knative kn command line interface
+5. Installation of Tekton tkn command line interface
