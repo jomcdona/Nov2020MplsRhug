@@ -1,0 +1,3 @@
+Create table contactlist(id INTEGER PRIMARY KEY, mmid1 INTEGER, mmid2 INTEGER, street VARCHAR(60), city VARCHAR(30), state VARCHAR(30), zipcode VARCHAR(10), country VARCHAR(4));
+Create sequence contacts_seq start with 1 increment by 1;
+

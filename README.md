@@ -61,8 +61,10 @@ The demo flow spans two actors an OpenShift cluster administrator as a cluster o
 7. Change to Developer Console
 8. Using Postgresql Ephemeral Template create a postgresql database
 ![Image](images/postgresql.jpg)
-9. Deploy pactquery as deployment with pipeline
-10. Deploy serverlessdemo as knative (pact-contact-log-svc)
-11. Deploy pact producer as knative
-12. Deploy knative kafka event source using oc apply -f event-source.yaml
-13. Deploy CamelK integration kamel run -d mvn:org.apache.clerezza.ext:org.json.simple:0.4 PactTranslationBridge.java (use 16-deploycamelk.sh)
+9. After Postgresql template fully deploys connect to pod terminal and use psql to connect to database (e.g. psql pactdb pact) and
+create schema using script supplied in [9-dev-schema.txt](helperscripts/9-dev-schema.txt)
+10. Using the From Git template Deploy pactquerysvc as deployment with Java8 builder image, name pactquerysvc, check Add Pipeline 
+11  Using the From Git template Deploy pact-content-log-svc as knative service with Java 8 builder image, name pact-contactlog-svc, uncheck create routeDeploy serverlessdemo as knative
+11. Using the From Git template Deploy pactproducer as knative service with Java 8 builder image, name pactproducer, check create route
+12. Using Event Source template create a KafkaSource event source, BootstrapServer pact-cluster-kafka-brokers.pact.svc.cluster.local:9092,topics pact-translated, Sink pact-contactlog-svc
+13. Deploy CamelK integration (use [13-deploycamelk.sh](helper/scripts/13-deploycamelk.sh))
