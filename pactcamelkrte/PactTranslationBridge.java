@@ -25,7 +25,7 @@ public class PactTranslationBridge extends RouteBuilder {
           mmid1 = parsebody[0];
           mmid2 = parsebody[1];
           String location = parsebody[2] + "," + parsebody[3];
-          String mapquesturi = "www.mapquestapi.com/geocoding/v1/reverse?key=ZoGRKrEpoaLNO1aMR9rGd1I1FVg3QEVX&location=" + location + "&includeRoadMetadata=false&includeNearestIntersection=false";
+          String mapquesturi = "www.mapquestapi.com/geocoding/v1/reverse?key=<your key here>&location=" + location + "&includeRoadMetadata=false&includeNearestIntersection=false";
           exchange.getIn().setBody(mapquesturi);
       }
     }
