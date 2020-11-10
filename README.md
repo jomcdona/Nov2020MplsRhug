@@ -30,13 +30,35 @@ The following image illustrates the flow between the service components of the d
 ## Demo Pre-requisites:
 1. An OpenShift 4.5(+) cluster with admin access
 2. Creation of a non-admin user with identity of pactdev
-3. Installation of ko cli for deploying kubernetes CRD's for knative kafka source (<https://github.com/google/ko>)
-4. Deployment of Knative Kafka Event Sources into OpenShift cluster (<https://github.com/knative/eventing-contrib/blob/master/DEVELOPMENT.md#checkout-your-fork>)
-5. Installation of oc command line interface
-6. Installation of Knative kn command line interface
-7. Installation of Tekton tkn command line interface
+3. Creation of a knative-eventing and knative-serving projects in OpensShift cluster required for Knative Services
+4. Installation of ko cli for deploying kubernetes CRD's for knative kafka source (<https://github.com/google/ko>)
+5. Deployment of Knative Kafka Event Source CRD's into OpenShift cluster (<https://github.com/knative/eventing-contrib/blob/master/DEVELOPMENT.md#checkout-your-fork>)
+6. Installation of oc command line interface
+7. Installation of Knative kn command line interface
+8. Installation of Tekton tkn command line interface
 
 ## Demo Flow
 The demo flow spans two actors an OpenShift cluster administrator as a cluster operator and a developer
 
-> Operator
+> **Operator** (Steps performed using OpenShift Admin Web Console)
+1. Create a project with the name of pact
+2. Using OpenShift OperatorHub, Install Kafka Operator using *"Red Hat Integration - AMQ Streams operator"* in **all namespaces**
+3. Using OpenShift OperatorHub, Install Serverless Operator Using *"OCP Serverless Operator"* in **all namespaces**
+4. Using OpenShift OperatorHub, Install *"Tekton Operator"* in **all Namespaces**
+5. Change to knative-eventing project and create *"Knative Eventing Instance"* using installed Serverless Operator 
+6. Change to knative-serving project and create *"Knative Serving Instance"* using installed Serverless Operator
+7. Deploy Knative Eventing CRD/API’s (use 7-createkneventapi.sh)
+8. Install CamelK Operator with CamelK operator (pact namespace)
+9. Provision pactdev user admin rights to pact project
+
+> **Developer**
+1. Login as pactdev
+2. Create Kafka Broker (pact namceppace/pact-cluster)
+3. Create Topics API (pact-translated, pact-untranslated)
+4. Create postgresql database (pactdb as svc pact/pact)
+5. Deploy pactquery as deployment with pipeline
+6. Deploy serverlessdemo as knative (pact-contact-log-svc)
+7. Deploy pact producer as knative
+8. Deploy knative kafka event source using oc apply -f event-source.yaml
+9. Deploy CamelK integration kamel run -d mvn:org.apache.clerezza.ext:org.json.simple:0.4 PactTranslationBridge.java (use 16-deploycamelk.sh)
+
