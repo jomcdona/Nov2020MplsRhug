@@ -60,8 +60,7 @@ The demo flow spans two actors an OpenShift cluster administrator as a cluster o
 6. Create *"Kafka Topic*" named pact-untranslated using installed Kafka Operator
 7. Change to Developer Console
 8. Using Postgresql Ephemeral Template create a postgresql database\
-![Image][1]
-[1]:images/postgresql.jpg
+<img src="images/postgresql.jpg">
 5. Deploy pactquery as deployment with pipeline
 6. Deploy serverlessdemo as knative (pact-contact-log-svc)
 7. Deploy pact producer as knative
