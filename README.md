@@ -47,7 +47,7 @@ The demo flow spans two actors an OpenShift cluster administrator as a cluster o
 4. Using OpenShift OperatorHub, Install *"Tekton Operator"* in **all Namespaces**
 5. Change to knative-eventing project and create *"Knative Eventing Instance"* using installed Serverless Operator 
 6. Change to knative-serving project and create *"Knative Serving Instance"* using installed Serverless Operator
-7. Deploy Knative Eventing CRD/API’s (use 7-op-createknkafkasource.sh [Link](helperscripts/7-op-createknkafkasource.sh) see notes)
+7. Deploy Knative Eventing CRD/API’s (use [7-op-createknkafkasource.sh](helperscripts/7-op-createknkafkasource.sh) see notes)
 8. Using OpenShift OperatorHub, Install *"CamelK Operator"* in **pact namespace**
 9. From Developer Console/Project/Project Access  provision pactdev user admin rights to pact project
 
