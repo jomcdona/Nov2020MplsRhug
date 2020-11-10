@@ -29,7 +29,7 @@ The following image illustrates the flow between the service components of the d
 
 ## Demo Pre-requisites
 1. An OpenShift 4.5(+) cluster
-2. Installation of ko cli for deploying kubernetes CRD's for knative kafka source (<a href="https://github.com/google/ko">)
+2. Installation of ko cli for deploying kubernetes CRD's for knative kafka source (<https://github.com/google/ko>)
 3. Installation of oc command line interface
 4. Installation of Knative kn command line interface
 5. Installation of Tekton tkn command line interface
