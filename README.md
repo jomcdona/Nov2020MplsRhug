@@ -1,2 +1,2 @@
-#**November 2020 Minneapolis RHUG**
+#November 2020 Minneapolis RHUG
 
