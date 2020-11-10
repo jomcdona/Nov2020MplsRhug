@@ -61,7 +61,6 @@ The demo flow spans two actors an OpenShift cluster administrator as a cluster o
 7. Change to Developer Console
 8. Using Postgresql Ephemeral Template create a postgresql database
 ![Image](images/postgresql.jpg)
-<img src="images/postgresql.jpg">\
 9. Deploy pactquery as deployment with pipeline
 10. Deploy serverlessdemo as knative (pact-contact-log-svc)
 11. Deploy pact producer as knative
