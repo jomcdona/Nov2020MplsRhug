@@ -62,8 +62,7 @@ The demo flow spans two actors an OpenShift cluster administrator as a cluster o
 8. Using Postgresql Ephemeral Template create a postgresql database
 ![Image](images/postgresql.jpg)
 9. After Postgresql template fully deploys connect to pod terminal and use psql to connect to database (e.g. psql pactdb pact) and
-create schema using script supplied in [9-dev-schema.txt]
-(helperscripts/9-dev-schema.txt)
+create schema using script supplied in [9-dev-schema.txt](helperscripts/9-dev-schema.txt)
 ![Image](images/postgresterm.jpg)
 10. Using the From Git template Deploy pactquerysvc as deployment with Java8 builder image, name pactquerysvc, check Add Pipeline 
 11  Using the From Git template Deploy pact-content-log-svc as knative service with Java 8 builder image, name pact-contactlog-svc, uncheck create routeDeploy serverlessdemo as knative
