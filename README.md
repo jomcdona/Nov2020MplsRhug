@@ -47,18 +47,23 @@ The demo flow spans two actors an OpenShift cluster administrator as a cluster o
 4. Using OpenShift OperatorHub, Install *"Tekton Operator"* in **all Namespaces**
 5. Change to knative-eventing project and create *"Knative Eventing Instance"* using installed Serverless Operator 
 6. Change to knative-serving project and create *"Knative Serving Instance"* using installed Serverless Operator
-7. Deploy Knative Eventing CRD/API’s (use 7-createkneventapi.sh)
-8. Install CamelK Operator with CamelK operator (pact namespace)
-9. Provision pactdev user admin rights to pact project
+7. Deploy Knative Eventing CRD/API’s (use 7-op-createknkafkasource.sh <helperscripts/7-op-createknkafkasource.sh> see notes)
+8. Using OpenShift OperatorHub, Install *"CamelK Operator"* in **pact namespace**
+9. From Developer Console/Project/Project Access  provision pactdev user admin rights to pact project
 
 > **Developer**
-1. Login as pactdev
-2. Create Kafka Broker (pact namceppace/pact-cluster)
-3. Create Topics API (pact-translated, pact-untranslated)
-4. Create postgresql database (pactdb as svc pact/pact)
+1. Login into OpenShift Admin Conole as pactdev user
+2. Change to Administrator Console
+3. Change to pact Project
+4. Create *"Kafka Broker*" named pact-cluster using installed Kafka Operator
+5. Create *"Kafka Topic*" named pact-translated using installed Kafka Operator
+6. Create *"Kafka Topic*" named pact-untranslated using installed Kafka Operator
+7. Change to Developer Console
+8. Using Postgresql Ephemeral Template create a postgresql database
+![Image][1]
+[1]: images/postgresql.jpg
 5. Deploy pactquery as deployment with pipeline
 6. Deploy serverlessdemo as knative (pact-contact-log-svc)
 7. Deploy pact producer as knative
 8. Deploy knative kafka event source using oc apply -f event-source.yaml
 9. Deploy CamelK integration kamel run -d mvn:org.apache.clerezza.ext:org.json.simple:0.4 PactTranslationBridge.java (use 16-deploycamelk.sh)
-
